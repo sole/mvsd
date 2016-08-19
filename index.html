@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>mvsd - minimally viable slide deck</title>
+		
+		<link rel="stylesheet" href="vendor/prism/prism.css">
+		<script src="vendor/prism/prism.js" defer></script>
+
+		<!-- mvsd defaults, basic but functional -->
+		<link rel="stylesheet" href="src/mvsd.css">
+		<!-- additional styles for the example -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="src/mvsd.js" defer></script>
+		<script src="js/main.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<nav id="handle">@supersole</nav>
+
+			<section class="intro">
+				<h1>mvsd</h1>
+				<h2><strong>m</strong>inimally <strong>v</strong>iable <strong>s</strong>lide <strong>d</strong>eck</h2>
+				<h3><a href="https://soledadpenades.com">soledadpenades.com</a> / @supersole</h3>
+			</section>
+
+			<section class="splash warning">
+				<h1><strong>Warning:</strong> this slide deck is very tailored to my needs</h1>
+				<h2>displaying source code</h2>
+				<h2>showing inline demos</h2>
+				<h2>scalable</h2>
+			</section>
+
+			<section class="splash">
+				<h1>Featuring...</h1>
+			</section>
+
+			<section>
+				<h1>Source code</h1>
+				<h2>Highlighted using <a href="http://prismjs.com/">Prism.js</a></h2>
+				<pre>
+					<code class="language-html">
+						&lt;pre&gt;
+							&lt;code class="language-xxxx"&gt;
+							// where xxxx = javascript, html, css...
+							&lt;/code&gt;
+						&lt;/pre&gt;
+					</code>
+				</pre>
+			</section>
+			
+			<section class="splash background-image" data-background="imgs/bg.jpg">
+				<h1>Background images can cover the whole slide</h1>
+				<h2>(and are also scaled and hardware accelerated by the browser)</h2>
+			</section>
+
+			<section>
+				<h1>Get background images with:</h1>
+				<pre>
+					<code class="language-html">
+						&lt;section class="background-image" data-background="/path/to/image"&gt;
+						...
+						&lt;/section&gt;
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h1>Fragments</h1>
+				<h2>Let you show or hide items on demand, as you press the down and up arrows</h2>
+				<ul>
+					<li class="fragment">There can be any number of fragments per slide</li>
+					<li class="fragment">Elements with class="fragment" become fragments</li>
+					<li class="fragment">They'll be initially hidden when the slide is shown</li>
+					<li class="fragment">This technique is specially good for bullet points</li>
+					<li class="fragment">See?</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1><tt>iframes</tt> will be automatically hidden for all but the currently active slide</h1>
+				<h2>This is to avoid hidden frames emitting sounds in the background, etc</h2>
+				<h2>Set them with <tt>data-src</tt> instead of <tt>src</tt></h2>
+				<pre>
+					<code class="language-html">
+						&lt;iframe data-src="path/to/iframe"&gt;
+						&lt;/iframe&gt;
+					</code>
+				</pre>
+			</section>
+	
+			<section class="two-columns">
+				<div>
+					<pre>
+						<code class="language-html">
+							&lt;!-- Example including Wikipedia in an iframe --&gt;
+							&lt;iframe data-src="http://wikipedia.org"&gt;
+							&lt;/iframe&gt;
+						</code>
+					</pre>
+				</div>
+				<div>
+					<iframe data-src="http://wikipedia.org"></iframe>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1>Thanks!</h1>
+				<h2><tt>soledadpenades.com</tt></h2>
+			</section>
+
+		</main>
+
+	</body>
+</html>

@@ -1,0 +1,113 @@
+body {
+	color: #000;
+	background: #fff;
+}
+
+h1, h2, h3, p, li, nav {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+	color: #00f;
+}
+
+section.intro {
+	background: #efefef;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	font-size: 1.5em;
+}
+
+section.splash {
+	font-size: 1.25em;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+
+section.warning {
+	background: #ff0;
+}
+
+section.two-columns {
+	display: flex;
+	flex-flow: row;
+}
+
+section.two-columns > * {
+	flex-grow: 1;
+	width: 50%;
+}
+
+section.two-columns > div {
+	display: flex;
+}
+
+section.two-columns > div > * {
+	width: 100%;
+	height: 100%;
+}
+
+section.two-rows {
+	display: flex;
+	flex-flow: column;
+}
+
+section.two-rows > * {
+	flex-grow: 1;
+	height: 50%;
+}
+
+section.two-rows > div {
+	display: flex;
+}
+
+section.two-rows > div > * {
+	width: 100%;
+	height: 100%;
+}
+
+section.fullscreen-demo {
+	display: flex;
+	background: #000;
+}
+
+section.fullscreen-demo > div {
+	width: 100%;
+	height: 100%;
+	flex: auto;
+	padding: 1rem;
+}
+
+section.fullscreen-demo > div iframe {
+	width: 100%;
+	height: 100%;
+}
+
+/* Not interested in Prism's stylistic choices with regards to code blocks */
+pre[class*="language-"] {
+	margin: 0;
+	border-radius: 0;
+}
+
+iframe {
+	border: none;
+}
+
+ins {
+	color: green;
+	text-decoration: none;
+}
+
+img {
+	max-width: 80%;
+	height: auto;
+	max-height: 70%;
+}
+
+tt {
+	font-weight: bold;
+}
