@@ -14,7 +14,7 @@ Its features:
 * Support for iframes for showing inline demos
 * Support for fragments
 
-An example slide deck is in the [index.html](./index.html) file (or [online](https://sole.github.io/mvsd/).
+An example slide deck is in the [index.html](./index.html) file (or [online](https://sole.github.io/mvsd/)).
 
 Another example with plenty of inline demos is my presentation on [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API): [online](https://soledadpenades.com/files/t/2016_rtalchemy/) and [sources](https://github.com/sole/mediarecorder-slides).
 
