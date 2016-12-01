@@ -2,7 +2,7 @@ function MVSD(slides) {
 
 	var currentIndex; // It's 1..indexed
 	var currentSlide;
-	
+
 	if(slides === undefined) {
 		slides = Array.from(document.querySelectorAll('section'));
 	}
@@ -20,7 +20,7 @@ function MVSD(slides) {
 					prevSlide();
 					e.preventDefault();
 					break;
-				
+
 				case 32: // space
 				case 39: // right
 					nextSlide();
@@ -39,7 +39,42 @@ function MVSD(slides) {
 			}
 		}
 	});
-	
+
+    if ('ontouchstart' in document.documentElement) {
+        var touchStates = { init: 0, moving: 1 }
+        var currentTouchState = touchStates.init
+        var startPosition = null
+        function onTouchStart (e) {
+            if (currentTouchState === touchStates.init) {
+                currentTouchState = touchStates.moving
+                var touch = e.changedTouches[0]
+                startPosition = { pageX: touch.pageX, pageY: touch.pageY }
+            }
+        }
+        function onTouchCancel () {
+            currentTouchState = touchStates.init
+            startPosition = null
+        }
+        function onTouchEnd (e) {
+            if (currentTouchState === touchStates.moving) {
+                var touch = e.changedTouches[0]
+                var minX = window.innerWidth / 4
+                // swipe left
+                if (startPosition.pageX - touch.pageX > minX) {
+                    nextSlide()
+                // swipe right
+                } else if (touch.pageX - startPosition.pageX > minX) {
+                    prevSlide()
+                }
+            }
+            startPosition = null
+            currentTouchState = touchStates.init
+        }
+        window.addEventListener('touchstart', onTouchStart)
+        window.addEventListener('touchend', onTouchEnd)
+        window.addEventListener('touchcancel',onTouchCancel)
+    }
+
 	this.onSlideChange = function() {}
 
 	gotoSlide(readHash() || 1);
@@ -95,7 +130,7 @@ function MVSD(slides) {
 	function showOneFragment() {
 		var fragments = getFragmentsAtSlide(currentIndex - 1);
 		var nextFragment;
-		
+
 		for(var i = 0; i < fragments.length; i++) {
 			var f = fragments[i];
 			if(!f.classList.contains('visible')) {
@@ -103,12 +138,12 @@ function MVSD(slides) {
 				break;
 			}
 		}
-		
+
 		if(nextFragment) {
 			showFragment(nextFragment);
 		}
 	}
-	
+
 	function getFragmentsAtSlide(index) {
 		var slide = slides[index];
 		var fragments = Array.from(slide.querySelectorAll('.fragment'));
@@ -137,7 +172,7 @@ function MVSD(slides) {
 	}
 
 	// FULL BACKGROUND IMAGES
-	
+
 	function preloadBackgroundImages(slides) {
 		// data-background to section style background value
 		slides.forEach((s) => {
@@ -182,7 +217,7 @@ function MVSD(slides) {
 	}
 
 	function enableIframesAtSlide(slide) {
-		var iframes = getSlideIframes(slide); 
+		var iframes = getSlideIframes(slide);
 		iframes.forEach(iframe => {
 			var dataSrc = iframe.dataset.src;
 			if(dataSrc) {
@@ -191,4 +226,3 @@ function MVSD(slides) {
 		});
 	}
 }
-
