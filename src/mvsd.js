@@ -40,7 +40,7 @@ function MVSD(slides) {
 		}
 	});
 	
-	this.onSlideChange = function() {}
+	var onSlideChange = this.onSlideChange = function() {};
 
 	gotoSlide(readHash() || 1);
 
